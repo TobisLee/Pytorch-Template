@@ -3,6 +3,8 @@
 Personal pytorch template
 
 TODO:
+- [x] train template
+- [ ] evaluate template
 - [ ] use .json as config file
 - [ ] tensorboard
 - [ ] Distributed Data Parallel
