@@ -18,9 +18,9 @@ def train():
         transforms.Normalize((0.5, 0.5, 0.5), (0.5, 0.5, 0.5))
         ])
     trainset = torchvision.datasets.CIFAR10(root='./data', train=True, download=True, transform=transform)
-    trainloader = torch.utils.data.DataLoader(trainset, batch_size=100, shuffle=True, num_workers=8, pin_memory=True)
+    trainloader = torch.utils.data.DataLoader(trainset, batch_size=64, shuffle=True, num_workers=8, pin_memory=True)
     testset = torchvision.datasets.CIFAR10(root='./data', train=False, download=True, transform=transform)
-    testloader = torch.utils.data.DataLoader(testset, batch_size=100, shuffle=False, num_workers=8, pin_memory=True)
+    testloader = torch.utils.data.DataLoader(testset, batch_size=64, shuffle=False, num_workers=8, pin_memory=True)
     classes = ('plane', 'car', 'bird', 'cat', 'deer', 'dog', 'frog', 'horse', 'ship', 'truck')
 
     #  net = AlexNet()
@@ -41,12 +41,12 @@ def train():
             optimizer.step()
 
             total_loss += loss.item()
-            if i % 200 == 199:
-                print('[%d, %5d] loss: %.3f' % (epoch+1, i+1, total_loss / 200))
+            if i % 20 == 19:
+                print('[%d, %5d] loss: %.3f' % (epoch+1, i+1, total_loss / 20))
                 total_loss = 0.0
     print('Finished Training...')
 
-    torch.save(net.state_dict(), './checkpoints/mobilenetv3.pth')
+    torch.save(net.state_dict(), './checkpoints/mobilenetv3-temp.pth')
 
 
 def main():
