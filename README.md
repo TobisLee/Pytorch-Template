@@ -50,4 +50,4 @@ TODO:
 - [ ] tensorboard
 - [ ] Distributed Data Parallel
 - [x] Automatic Mixed Precision (Apex+pytorch)
-- [ ] Automatic Mixed Precision (pytorch1.6 native AMP)
+- [x] Automatic Mixed Precision (pytorch1.6 native AMP)
